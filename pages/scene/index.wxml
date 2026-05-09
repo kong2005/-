@@ -1,0 +1,73 @@
+<view class="page">
+  <image class="bg" src="/images/bg_scene.png" mode="aspectFill"></image>
+  <view class="bg-mask"></view>
+
+  <view class="scene-container">
+    <view class="scene-title">
+      <view class="title-main">诗乐解构</view>
+      <view class="title-sub">意象为骨，音乐为魂</view>
+    </view>
+
+    <view class="control-area">
+      <button class="start-btn" bindtap="handleStartScene">
+        {{sceneStarted ? '重新演绎' : '场景还原'}}
+      </button>
+    </view>
+
+    <image
+      class="liping {{sceneStarted ? 'fade-in' : ''}}"
+      src="/images/liping.png"
+      mode="widthFix"
+    ></image>
+
+    <block wx:for="{{hotspots}}" wx:key="id">
+      <view
+        class="hotspot-wrapper {{item.visible ? 'show-hotspot' : 'hide-hotspot'}} {{item.floatClass}}"
+        style="left: {{item.left}}; top: {{item.top}};"
+        data-id="{{item.id}}"
+        bindtap="handleTapHotspot"
+      >
+        <!-- 普通图片热点 -->
+        <block wx:if="{{item.type !== 'area'}}">
+          <image
+            class="hotspot-img {{activeId === item.id ? 'hotspot-active' : ''}} {{pulseId === item.id ? 'hotspot-pulse' : ''}}"
+            src="{{item.image}}"
+            mode="widthFix"
+            style="width: {{item.width}};"
+          ></image>
+        </block>
+
+        <!-- 箜篌透明点击区 -->
+        <block wx:else>
+          <view
+            class="konghou-area {{activeId === item.id ? 'konghou-area-active' : ''}} {{pulseId === item.id ? 'konghou-area-pulse' : ''}}"
+            style="width: {{item.areaWidth}}; height: {{item.areaHeight}};"
+          ></view>
+        </block>
+
+        <view class="hotspot-label {{activeId === item.id ? 'hotspot-label-show' : 'hotspot-label-hide'}}">
+          {{item.label}}
+        </view>
+      </view>
+    </block>
+
+    <view class="tips" wx:if="{{sceneStarted}}">
+      点击场景中的意象，查看详细解读
+    </view>
+  </view>
+
+  <view class="popup-mask" wx:if="{{showPopup}}" bindtap="handleClosePopup"></view>
+
+  <view class="popup" wx:if="{{showPopup}}" style="top: {{popupTop}};">
+    <view class="popup-header">
+      <view class="popup-title">{{currentHotspot.label}}</view>
+      <view class="popup-close" bindtap="handleClosePopup">×</view>
+    </view>
+
+    <view class="popup-body">
+      <view class="popup-poem">诗句：{{currentHotspot.poem}}</view>
+      <view class="popup-desc">{{currentHotspot.desc}}</view>
+      <view class="popup-technique">手法：{{currentHotspot.technique}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,330 @@
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #0f1b2d;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-mask {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 14, 30, 0.14),
+    rgba(6, 14, 30, 0.30),
+    rgba(6, 14, 30, 0.52)
+  );
+}
+
+.scene-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+/* 标题 */
+.scene-title {
+  position: absolute;
+  top: 78rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #f5f0e6;
+  z-index: 5;
+}
+
+.title-main {
+  font-size: 40rpx;
+  font-weight: 600;
+  letter-spacing: 4rpx;
+  text-shadow: 0 4rpx 14rpx rgba(0, 0, 0, 0.25);
+}
+
+.title-sub {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: rgba(245, 240, 230, 0.88);
+  text-shadow: 0 4rpx 14rpx rgba(0, 0, 0, 0.22);
+}
+
+/* 按钮 */
+.control-area {
+  position: absolute;
+  top: 182rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+}
+
+.start-btn {
+  min-width: 240rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  border-radius: 40rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.32);
+  background: rgba(12, 24, 46, 0.40);
+  color: #f6f1e8;
+  font-size: 26rpx;
+  padding: 0 30rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.14);
+}
+
+/* 李凭 */
+.liping {
+  position: absolute;
+  width: 560rpx;
+  left: 50%;
+  bottom: 135rpx;
+  transform: translateX(-50%);
+  opacity: 0.98;
+  z-index: 4;
+}
+
+.fade-in {
+  animation: fadeInUp 0.9s ease;
+}
+
+/* 热点 */
+.hotspot-wrapper {
+  position: absolute;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18rpx;
+  transition: opacity 0.3s ease;
+}
+
+.hide-hotspot {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.show-hotspot {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hotspot-img {
+  opacity: 0.94;
+  filter: drop-shadow(0 0 10rpx rgba(180, 220, 255, 0.22));
+  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+}
+
+.hotspot-active {
+  opacity: 1;
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 24rpx rgba(180, 220, 255, 0.96));
+}
+
+.hotspot-pulse {
+  animation: pulseGlow 0.65s ease;
+}
+
+.hotspot-label {
+  margin-top: 8rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 20rpx;
+  background: rgba(7, 19, 38, 0.74);
+  color: #f5f0e6;
+  font-size: 22rpx;
+  line-height: 1.6;
+  transition: all 0.25s ease;
+}
+
+.hotspot-label-hide {
+  opacity: 0;
+  transform: translateY(6rpx);
+  pointer-events: none;
+}
+
+.hotspot-label-show {
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 0 14rpx rgba(180, 220, 255, 0.22);
+}
+
+/* 不同漂浮节奏 */
+.float-a {
+  animation: floatA 4s ease-in-out infinite;
+}
+
+.float-b {
+  animation: floatB 2.9s ease-in-out infinite;
+}
+
+.float-c {
+  animation: floatC 3.5s ease-in-out infinite;
+}
+
+.float-d {
+  animation: floatD 3.2s ease-in-out infinite;
+}
+
+.float-e {
+  animation: floatE 2.7s ease-in-out infinite;
+}
+
+/* 底部提示 */
+.tips {
+  position: absolute;
+  left: 50%;
+  bottom: 34rpx;
+  transform: translateX(-50%);
+  padding: 10rpx 20rpx;
+  border-radius: 24rpx;
+  background: rgba(10, 20, 35, 0.42);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 22rpx;
+  z-index: 8;
+}
+
+/* 弹窗 */
+.popup-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+  z-index: 20;
+}
+
+.popup {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+  width: 82%;
+  max-height: 62vh;
+  overflow-y: auto;
+  border-radius: 28rpx;
+  background: rgba(248, 244, 235, 0.97);
+  box-shadow: 0 16rpx 48rpx rgba(0, 0, 0, 0.22);
+  z-index: 21;
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 30rpx 18rpx;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.08);
+}
+
+.popup-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #2d2a26;
+}
+
+.popup-close {
+  width: 48rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  font-size: 40rpx;
+  color: #6b6258;
+}
+
+.popup-body {
+  padding: 24rpx 30rpx 34rpx;
+  color: #3a342c;
+}
+
+.popup-poem {
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 1.8;
+  color: #473f35;
+}
+
+.popup-desc {
+  margin-top: 18rpx;
+  font-size: 28rpx;
+  line-height: 1.9;
+  color: #4a4339;
+}
+
+.popup-technique {
+  margin-top: 18rpx;
+  padding: 16rpx 18rpx;
+  border-radius: 18rpx;
+  background: rgba(27, 53, 87, 0.08);
+  font-size: 26rpx;
+  line-height: 1.8;
+  color: #2f4868;
+}
+
+/* 动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(24rpx);
+  }
+  to {
+    opacity: 0.98;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0rpx rgba(180, 220, 255, 0));
+  }
+  50% {
+    transform: scale(1.16);
+    filter: drop-shadow(0 0 22rpx rgba(180, 220, 255, 1));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0rpx rgba(180, 220, 255, 0));
+  }
+}
+
+@keyframes floatA {
+  0%, 100% { transform: translateY(0rpx); }
+  50% { transform: translateY(-8rpx); }
+}
+
+@keyframes floatB {
+  0%, 100% { transform: translateY(0rpx); }
+  50% { transform: translateY(-13rpx); }
+}
+
+@keyframes floatC {
+  0%, 100% { transform: translateY(0rpx); }
+  50% { transform: translateY(-10rpx); }
+}
+
+@keyframes floatD {
+  0%, 100% { transform: translateY(0rpx); }
+  50% { transform: translateY(-6rpx); }
+}
+
+@keyframes floatE {
+  0%, 100% { transform: translateY(0rpx); }
+  50% { transform: translateY(-9rpx); }
+}
+.konghou-area {
+  background: transparent;
+  border: none;
+  border-radius: 24rpx;
+  transition: all 0.25s ease;
+}
+
+.konghou-area-active {
+  background: rgba(180, 220, 255, 0.08);
+  box-shadow: 0 0 24rpx rgba(180, 220, 255, 0.35);
+}
+
+.konghou-area-pulse {
+  animation: pulseGlow 0.65s ease;
+}

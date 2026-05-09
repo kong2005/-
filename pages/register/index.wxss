@@ -1,0 +1,214 @@
+.register-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #F8F3E8 0%, #EDE4CC 60%, #E8D5A3 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ===== 顶部导航 ===== */
+.cu-navbar {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 32rpx;
+  background: linear-gradient(135deg, #1A1A2E 0%, #2C2C4A 60%, #3A1F1A 100%);
+  border-bottom: 2rpx solid rgba(201, 168, 76, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+  box-shadow: 0 4rpx 32rpx rgba(13, 27, 42, 0.45);
+}
+
+.nav-back {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1rpx solid rgba(201, 168, 76, 0.3);
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.nav-back:active {
+  background: rgba(201, 168, 76, 0.28);
+}
+
+.nav-back-icon {
+  color: #C9A84C;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.nav-placeholder {
+  width: 64rpx;
+  height: 64rpx;
+  flex-shrink: 0;
+  opacity: 0;
+}
+
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 34rpx;
+  color: #C9A84C;
+  font-weight: bold;
+  letter-spacing: 4rpx;
+  font-family: "STKaiti", "KaiTi", serif;
+  text-shadow: 0 0 16rpx rgba(201, 168, 76, 0.4);
+}
+
+/* ===== 主内容区 ===== */
+.content-wrap {
+  flex: 1;
+  padding: 48rpx 32rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 48rpx;
+}
+
+/* ===== 标题区 ===== */
+.title-section {
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+
+.main-title {
+  font-size: 36rpx;
+  color: #1A1A2E;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  margin-bottom: 16rpx;
+  font-family: "STKaiti", "KaiTi", serif;
+}
+
+.sub-title {
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ===== 表单区 ===== */
+.form-section {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 24rpx;
+  padding: 32rpx;
+  box-shadow: 0 8rpx 32rpx rgba(13, 27, 42, 0.12);
+  border: 1rpx solid rgba(201, 168, 76, 0.2);
+}
+
+.form-item {
+  margin-bottom: 32rpx;
+}
+
+.form-label {
+  display: block;
+  font-size: 24rpx;
+  color: #1A1A2E;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+  font-family: "STKaiti", "KaiTi", serif;
+}
+
+.form-input {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 24rpx;
+  background: rgba(248, 243, 232, 0.6);
+  border: 1rpx solid rgba(201, 168, 76, 0.3);
+  border-radius: 16rpx;
+  font-size: 26rpx;
+  color: #1A1A2E;
+  font-family: "STKaiti", "KaiTi", serif;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.form-actions {
+  display: flex;
+  gap: 24rpx;
+  margin-top: 40rpx;
+}
+
+.login-btn,
+.register-btn {
+  flex: 1;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  font-family: "STKaiti", "KaiTi", serif;
+  border: none;
+  transition: all 0.2s;
+}
+
+.login-btn {
+  background: linear-gradient(135deg, #C9A84C 0%, #A07830 100%);
+  color: #1A1A2E;
+}
+
+.login-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 4rpx 16rpx rgba(201, 168, 76, 0.4);
+}
+
+.register-btn {
+  background: rgba(26, 26, 46, 0.1);
+  color: #1A1A2E;
+  border: 1rpx solid rgba(201, 168, 76, 0.3);
+}
+
+.register-btn:active {
+  background: rgba(26, 26, 46, 0.15);
+  transform: scale(0.98);
+}
+
+/* ===== 快速登录 ===== */
+.quick-login {
+  text-align: center;
+  margin-top: 24rpx;
+}
+
+.quick-title {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 24rpx;
+  font-family: "STKaiti", "KaiTi", serif;
+}
+
+.quick-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 24rpx;
+}
+
+.quick-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+  padding: 24rpx;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1rpx solid rgba(201, 168, 76, 0.2);
+  border-radius: 16rpx;
+  transition: all 0.2s;
+}
+
+.quick-btn:active {
+  transform: scale(0.98);
+  background: rgba(201, 168, 76, 0.1);
+}
+
+.quick-icon {
+  font-size: 48rpx;
+}
+
+.quick-text {
+  font-size: 22rpx;
+  color: #666;
+  font-family: "STKaiti", "KaiTi", serif;
+}

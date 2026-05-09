@@ -1,0 +1,200 @@
+<view class="index-page">
+  <!-- 背景层 -->
+  <view class="bg-layer">
+    <image
+      class="bg-img"
+      src="https://hpi-hub.tos-cn-beijing.volces.com/static/mobilewallpapers/cHJpdmF0ZS9sci91748499179271-5318NTlfMi5qcGc.jpg"
+      mode="aspectFill"
+    />
+    <view class="bg-mask" />
+    <!-- 星光粒子装饰 -->
+    <view class="star s1" />
+    <view class="star s2" />
+    <view class="star s3" />
+    <view class="star s4" />
+    <view class="star s5" />
+  </view>
+
+  <!-- 主内容区 -->
+  <scroll-view scroll-y class="main-scroll">
+    <view class="content-wrap">
+
+      <!-- 顶部印章区 -->
+      <view class="top-badge-row">
+        <view class="badge-item">
+          <text class="badge-text">微课</text>
+        </view>
+        <view class="badge-divider" />
+        <view class="badge-item">
+          <text class="badge-text">AI辅助教学</text>
+        </view>
+      </view>
+
+      <!-- 封面主标题区 -->
+      <view class="cover-title-area">
+        <!-- 装饰线 -->
+        <view class="deco-line-top">
+          <view class="deco-dot" />
+          <view class="deco-line" />
+          <view class="deco-dot" />
+        </view>
+
+        <view class="lihe-avatar-entry {{isMonologuePlaying ? 'entry-active' : ''}}" bindtap="playMonologue">
+          <view class="lihe-img-wrap">
+            <image 
+              class="lihe-avatar-img {{isMonologuePlaying ? 'avatar-talking' : ''}}" 
+              src="https://hpi-hub.tos-cn-beijing.volces.com/static/batch_14/1757368300999-7522.png" 
+              mode="aspectFit" 
+            />
+          </view>
+          <!-- 语音气泡 -->
+          <view class="voice-bubble {{isMonologuePlaying ? 'bubble-show' : ''}}">
+            <view class="bubble-inner">
+              <text class="bubble-text">{{isMonologuePlaying ? '“余闻李凭弹箜篌...”' : '点击听李贺自白'}}</text>
+              <view class="audio-waves" wx:if="{{isMonologuePlaying}}">
+                <view class="wave-bar b1" />
+                <view class="wave-bar b2" />
+                <view class="wave-bar b3" />
+              </view>
+            </view>
+            <view class="bubble-arrow-tr"></view>
+          </view>
+        </view>
+
+        <text class="main-title-full">诗乐共生·大唐浪漫</text>
+
+        <view class="gold-line-wrap">
+          <view class="gold-line-full" />
+        </view>
+
+        <text class="sub-title">解析李贺《李凭箜篌引》</text>
+
+        <!-- 装饰线 -->
+        <view class="deco-line-bottom">
+          <view class="deco-dot" />
+          <view class="deco-line" />
+          <view class="deco-dot" />
+        </view>
+      </view>
+
+      <!-- 乐器装饰图 -->
+      <view class="instrument-deco">
+        <image
+          class="inst-img"
+          src="https://hpi-hub.tos-cn-beijing.volces.com/static/batch_14/1757359537504-8977.jpg"
+          mode="aspectFit"
+        />
+        <view class="inst-glow" />
+      </view>
+
+      <!-- 诗句引导语 -->
+      <view class="poem-preview">
+        <view class="poem-inner">
+          <text class="poem-line">昆山玉碎凤凰叫</text>
+          <view class="poem-sep" />
+          <text class="poem-line">芙蓉泣露香兰笑</text>
+        </view>
+      </view>
+
+      <!-- 功能入口卡片区 -->
+      <view class="cards-section">
+
+        <!-- 开始微课 -->
+        <view class="func-card card-primary" bindtap="goLesson">
+          <view class="card-icon-wrap card-icon-gold">
+            <image
+              class="card-icon-img"
+              src="https://img.icons8.com/fluency/96/musical-notes.png"
+              mode="aspectFit"
+            />
+          </view>
+          <view class="card-info">
+            <text class="card-title">进入微课</text>
+            <text class="card-desc">诗乐解构 · 乐器科普 · 艺术成就</text>
+          </view>
+          <view class="card-arrow">
+            <text class="arrow-text">❯</text>
+          </view>
+        </view>
+
+        <!-- AI对话 -->
+        <view class="func-card card-ai" bindtap="goAIDialog">
+          <view class="card-icon-wrap card-icon-red">
+            <image
+              class="card-icon-img"
+              src="https://img.icons8.com/fluency/96/chat.png"
+              mode="aspectFit"
+            />
+          </view>
+          <view class="card-info">
+            <text class="card-title">双时空对话</text>
+            <text class="card-desc">与AI李贺跨越千年对话</text>
+          </view>
+          <view class="card-arrow">
+            <text class="arrow-text">❯</text>
+          </view>
+        </view>
+
+        <!-- 乐器体验 -->
+        <view class="func-card card-inst" bindtap="goInstrument">
+          <view class="card-icon-wrap card-icon-cyan">
+            <image
+              class="card-icon-img"
+              src="https://img.icons8.com/fluency/96/harp.png"
+              mode="aspectFit"
+            />
+          </view>
+          <view class="card-info">
+            <text class="card-title">乐器聆听</text>
+            <text class="card-desc">箜篌 · 筝 · 阮咸 · 千年回响</text>
+          </view>
+          <view class="card-arrow">
+            <text class="arrow-text">❯</text>
+          </view>
+        </view>
+
+      </view>
+
+      <!-- 用户区域 -->
+      <view class="user-section">
+        <view wx:if="{{!currentUser}}" class="user-unlogged" bindtap="goLogin">
+          <image
+            class="user-avatar-icon"
+            src="https://img.icons8.com/fluency/96/user-male-circle.png"
+            mode="aspectFit"
+          />
+          <view class="user-text-wrap">
+            <text class="user-login-hint">登录以解锁完整AI对话</text>
+            <text class="user-login-sub">点击注册 / 登录</text>
+          </view>
+          <view class="login-btn">
+            <text class="login-btn-text">登录</text>
+          </view>
+        </view>
+
+        <view wx:else class="user-logged">
+          <view class="user-avatar-wrap">
+            <text class="user-emoji">🎓</text>
+          </view>
+          <view class="user-text-wrap">
+            <text class="user-welcome">欢迎回来，{{ currentUser.username }}</text>
+            <text class="user-sub">诗乐共生 · 大唐浪漫</text>
+          </view>
+          <view class="logout-btn" bindtap="handleLogout">
+            <text class="logout-text">退出</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 底部信息 -->
+      <view class="footer-info">
+        <view class="footer-divider" />
+        <view class="footer-poem">
+          <text class="footer-poem-text">「诗乐共生，是大唐的浪漫」</text>
+        </view>
+      </view>
+
+      <view style="height: 60rpx;" />
+    </view>
+  </scroll-view>
+</view>

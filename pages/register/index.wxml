@@ -1,0 +1,57 @@
+<view class="register-page">
+  <!-- 顶部导航 -->
+  <view class="cu-navbar">
+    <view class="nav-back" bindtap="goBack">
+      <text class="nav-back-icon">❮</text>
+    </view>
+    <text class="nav-title">用户登录</text>
+    <view class="nav-placeholder" />
+  </view>
+
+  <!-- 主内容区 -->
+  <view class="content-wrap">
+    <!-- 标题区 -->
+    <view class="title-section">
+      <text class="main-title">诗乐共生·大唐浪漫</text>
+      <text class="sub-title">登录以解锁完整AI对话功能</text>
+    </view>
+
+    <!-- 登录表单 -->
+    <view class="form-section">
+      <view class="form-item">
+        <text class="form-label">用户名</text>
+        <input 
+          class="form-input" 
+          placeholder="请输入用户名" 
+          placeholder-style="color:rgba(201,168,76,0.5)" 
+          bindinput="onUsernameInput"
+        />
+      </view>
+      <view class="form-item">
+        <text class="form-label">密码</text>
+        <input 
+          class="form-input" 
+          placeholder="请输入密码" 
+          placeholder-style="color:rgba(201,168,76,0.5)" 
+          password="true" 
+          bindinput="onPasswordInput"
+        />
+      </view>
+      <view class="form-actions">
+        <button class="login-btn" bindtap="handleLogin">登录</button>
+        <button class="register-btn" bindtap="handleRegister">注册</button>
+      </view>
+    </view>
+
+    <!-- 快速登录 -->
+    <view class="quick-login">
+      <text class="quick-title">快速登录</text>
+      <view class="quick-buttons">
+        <view class="quick-btn" bindtap="quickLogin">
+          <text class="quick-icon">🎓</text>
+          <text class="quick-text">游客登录</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

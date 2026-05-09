@@ -1,0 +1,950 @@
+<style>
+/* ColorUI 国风主题样式 - 诗乐共生·大唐浪漫 */
+
+/* ===== 设计令牌 ===== */
+:root {
+  --cu-gold: #C9A84C;
+  --cu-gold-light: #E8D5A3;
+  --cu-gold-dark: #A07830;
+  --cu-red: #C0392B;
+  --cu-red-light: #E8756A;
+  --cu-cyan: #2C5F6E;
+  --cu-cyan-light: #4A8FA0;
+  --cu-ink: #1A1A2E;
+  --cu-cream: #F8F3E8;
+  --cu-cream-dark: #EDE4CC;
+  --cu-white: #FFFFFF;
+  --cu-gray: #8B8B8B;
+  --cu-gray-light: #F0EDE6;
+  --cu-shadow: 0 4rpx 24rpx rgba(26,26,46,0.12);
+  --cu-shadow-gold: 0 4rpx 20rpx rgba(201,168,76,0.3);
+  --cu-radius-sm: 8rpx;
+  --cu-radius: 16rpx;
+  --cu-radius-lg: 32rpx;
+  --cu-radius-full: 9999rpx;
+}
+
+/* ===== 全局基础 ===== */
+page {
+  background-color: var(--cu-cream);
+  color: var(--cu-ink);
+  font-family: "STKaiti", "KaiTi", "楷体", "STSong", serif;
+}
+
+/* ===== 布局工具 ===== */
+.cu-flex { display: flex; }
+.cu-flex-col { display: flex; flex-direction: column; }
+.cu-flex-center { display: flex; align-items: center; justify-content: center; }
+.cu-flex-between { display: flex; align-items: center; justify-content: space-between; }
+.cu-flex-1 { flex: 1; }
+.cu-wrap { flex-wrap: wrap; }
+
+/* ===== 间距工具 ===== */
+.cu-p-xs { padding: 8rpx; }
+.cu-p-sm { padding: 16rpx; }
+.cu-p-md { padding: 24rpx; }
+.cu-p-lg { padding: 40rpx; }
+.cu-px-sm { padding-left: 16rpx; padding-right: 16rpx; }
+.cu-px-md { padding-left: 24rpx; padding-right: 24rpx; }
+.cu-px-lg { padding-left: 40rpx; padding-right: 40rpx; }
+.cu-py-sm { padding-top: 16rpx; padding-bottom: 16rpx; }
+.cu-py-md { padding-top: 24rpx; padding-bottom: 24rpx; }
+.cu-py-lg { padding-top: 40rpx; padding-bottom: 40rpx; }
+.cu-m-auto { margin: 0 auto; }
+.cu-mt-sm { margin-top: 16rpx; }
+.cu-mt-md { margin-top: 24rpx; }
+.cu-mt-lg { margin-top: 40rpx; }
+.cu-mb-sm { margin-bottom: 16rpx; }
+.cu-mb-md { margin-bottom: 24rpx; }
+.cu-mb-lg { margin-bottom: 40rpx; }
+
+/* ===== 文字工具 ===== */
+.cu-text-xs { font-size: 22rpx; }
+.cu-text-sm { font-size: 26rpx; }
+.cu-text-md { font-size: 30rpx; }
+.cu-text-lg { font-size: 36rpx; }
+.cu-text-xl { font-size: 44rpx; }
+.cu-text-2xl { font-size: 56rpx; }
+.cu-text-center { text-align: center; }
+.cu-text-left { text-align: left; }
+.cu-text-right { text-align: right; }
+.cu-text-gold { color: var(--cu-gold); }
+.cu-text-red { color: var(--cu-red); }
+.cu-text-cyan { color: var(--cu-cyan); }
+.cu-text-cream { color: var(--cu-cream); }
+.cu-text-ink { color: var(--cu-ink); }
+.cu-text-gray { color: var(--cu-gray); }
+.cu-text-white { color: var(--cu-white); }
+.cu-bold { font-weight: bold; }
+.cu-line-h { line-height: 1.8; }
+
+/* ===== 背景色 ===== */
+.cu-bg-cream { background-color: var(--cu-cream); }
+.cu-bg-cream-dark { background-color: var(--cu-cream-dark); }
+.cu-bg-ink { background-color: var(--cu-ink); }
+.cu-bg-gold { background-color: var(--cu-gold); }
+.cu-bg-red { background-color: var(--cu-red); }
+.cu-bg-cyan { background-color: var(--cu-cyan); }
+.cu-bg-white { background-color: var(--cu-white); }
+.cu-bg-glass {
+  background-color: rgba(248, 243, 232, 0.85);
+  backdrop-filter: blur(12px);
+}
+.cu-bg-dark-glass {
+  background-color: rgba(26, 26, 46, 0.75);
+  backdrop-filter: blur(12px);
+}
+
+/* ===== 圆角 ===== */
+.cu-round-sm { border-radius: var(--cu-radius-sm); }
+.cu-round { border-radius: var(--cu-radius); }
+.cu-round-lg { border-radius: var(--cu-radius-lg); }
+.cu-round-full { border-radius: var(--cu-radius-full); }
+
+/* ===== 阴影 ===== */
+.cu-shadow { box-shadow: var(--cu-shadow); }
+.cu-shadow-gold { box-shadow: var(--cu-shadow-gold); }
+
+/* ===== 卡片组件 ===== */
+.cu-card {
+  background-color: rgba(255, 255, 255, 0.92);
+  border-radius: var(--cu-radius);
+  box-shadow: var(--cu-shadow);
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  border: 1rpx solid rgba(201, 168, 76, 0.2);
+}
+
+.cu-card-gold {
+  background: linear-gradient(135deg, rgba(201,168,76,0.15) 0%, rgba(232,213,163,0.25) 100%);
+  border-radius: var(--cu-radius);
+  border: 1rpx solid var(--cu-gold-light);
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: var(--cu-shadow-gold);
+}
+
+.cu-card-ink {
+  background: linear-gradient(135deg, var(--cu-ink) 0%, #2C2C4A 100%);
+  border-radius: var(--cu-radius);
+  border: 1rpx solid rgba(201,168,76,0.4);
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  color: var(--cu-cream);
+}
+
+.cu-card-red {
+  background: linear-gradient(135deg, rgba(192,57,43,0.08) 0%, rgba(232,117,106,0.12) 100%);
+  border-radius: var(--cu-radius);
+  border: 1rpx solid rgba(192,57,43,0.3);
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+}
+
+.cu-card-cyan {
+  background: linear-gradient(135deg, rgba(44,95,110,0.08) 0%, rgba(74,143,160,0.12) 100%);
+  border-radius: var(--cu-radius);
+  border: 1rpx solid rgba(44,95,110,0.3);
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+}
+
+/* ===== 卡片头部 ===== */
+.cu-card-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid rgba(201,168,76,0.3);
+}
+
+.cu-card-header .title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: var(--cu-ink);
+  flex: 1;
+}
+
+/* ===== 按钮组件 ===== */
+.cu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 40rpx;
+  border-radius: var(--cu-radius-full);
+  font-size: 28rpx;
+  font-family: "STKaiti", "KaiTi", serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cu-btn::after { border: none; }
+
+.cu-btn-gold {
+  background: linear-gradient(135deg, var(--cu-gold) 0%, var(--cu-gold-dark) 100%);
+  color: var(--cu-white);
+  box-shadow: var(--cu-shadow-gold);
+}
+
+.cu-btn-gold:active {
+  transform: scale(0.97);
+  box-shadow: 0 2rpx 8rpx rgba(201,168,76,0.2);
+}
+
+.cu-btn-red {
+  background: linear-gradient(135deg, var(--cu-red) 0%, #A93226 100%);
+  color: var(--cu-white);
+  box-shadow: 0 4rpx 20rpx rgba(192,57,43,0.3);
+}
+
+.cu-btn-red:active { transform: scale(0.97); }
+
+.cu-btn-cyan {
+  background: linear-gradient(135deg, var(--cu-cyan) 0%, #1A3D47 100%);
+  color: var(--cu-white);
+  box-shadow: 0 4rpx 20rpx rgba(44,95,110,0.3);
+}
+
+.cu-btn-cyan:active { transform: scale(0.97); }
+
+.cu-btn-outline-gold {
+  background: transparent;
+  color: var(--cu-gold);
+  border: 2rpx solid var(--cu-gold);
+}
+
+.cu-btn-outline-gold:active {
+  background: rgba(201,168,76,0.1);
+  transform: scale(0.97);
+}
+
+.cu-btn-outline-red {
+  background: transparent;
+  color: var(--cu-red);
+  border: 2rpx solid var(--cu-red);
+}
+
+.cu-btn-sm { padding: 12rpx 28rpx; font-size: 24rpx; }
+.cu-btn-lg { padding: 28rpx 56rpx; font-size: 32rpx; }
+.cu-btn-block { width: 100%; display: flex; }
+.cu-btn-disabled { opacity: 0.5; pointer-events: none; }
+
+/* ===== 输入框组件 ===== */
+.cu-input-wrap {
+  background: rgba(255,255,255,0.9);
+  border: 1rpx solid var(--cu-gold-light);
+  border-radius: var(--cu-radius);
+  padding: 20rpx 28rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  transition: border-color 0.3s;
+}
+
+.cu-input-wrap:focus-within {
+  border-color: var(--cu-gold);
+  box-shadow: 0 0 0 4rpx rgba(201,168,76,0.15);
+}
+
+.cu-input-wrap .prefix {
+  color: var(--cu-gold);
+  margin-right: 16rpx;
+  font-size: 32rpx;
+  flex-shrink: 0;
+}
+
+.cu-input-wrap input {
+  flex: 1;
+  font-size: 28rpx;
+  color: var(--cu-ink);
+  font-family: "STKaiti", serif;
+  background: transparent;
+  border: none;
+  outline: none;
+  min-height: 44rpx;
+}
+
+.cu-input-label {
+  font-size: 26rpx;
+  color: var(--cu-cyan);
+  margin-bottom: 12rpx;
+  display: block;
+}
+
+/* ===== 标签/徽章 ===== */
+.cu-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6rpx 20rpx;
+  border-radius: var(--cu-radius-full);
+  font-size: 22rpx;
+}
+
+.cu-tag-gold {
+  background: rgba(201,168,76,0.15);
+  color: var(--cu-gold-dark);
+  border: 1rpx solid rgba(201,168,76,0.4);
+}
+
+.cu-tag-red {
+  background: rgba(192,57,43,0.1);
+  color: var(--cu-red);
+  border: 1rpx solid rgba(192,57,43,0.3);
+}
+
+.cu-tag-cyan {
+  background: rgba(44,95,110,0.1);
+  color: var(--cu-cyan);
+  border: 1rpx solid rgba(44,95,110,0.3);
+}
+
+/* ===== 分割线 ===== */
+.cu-divider {
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent, var(--cu-gold-light), transparent);
+  margin: 24rpx 0;
+}
+
+.cu-divider-text {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin: 24rpx 0;
+  color: var(--cu-gold);
+  font-size: 24rpx;
+}
+
+.cu-divider-text::before,
+.cu-divider-text::after {
+  content: '';
+  flex: 1;
+  height: 1rpx;
+  background: linear-gradient(90deg, transparent, var(--cu-gold-light));
+}
+
+.cu-divider-text::after {
+  background: linear-gradient(270deg, transparent, var(--cu-gold-light));
+}
+
+/* ===== 导航栏 ===== */
+.cu-navbar {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 32rpx;
+  background: linear-gradient(135deg, var(--cu-ink) 0%, #2C2C4A 100%);
+  border-bottom: 2rpx solid rgba(201,168,76,0.4);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.cu-navbar .nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 34rpx;
+  color: var(--cu-gold);
+  font-weight: bold;
+  letter-spacing: 4rpx;
+}
+
+.cu-navbar .nav-back {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cu-gold-light);
+  font-size: 36rpx;
+}
+
+/* ===== 章节卡片 ===== */
+.cu-section {
+  margin: 24rpx 24rpx;
+  border-radius: var(--cu-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--cu-shadow);
+}
+
+.cu-section-header {
+  background: linear-gradient(135deg, var(--cu-ink) 0%, #2C3E50 100%);
+  padding: 28rpx 32rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  border-bottom: 2rpx solid rgba(201,168,76,0.5);
+}
+
+.cu-section-header .section-num {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  background: var(--cu-gold);
+  color: var(--cu-ink);
+  font-size: 24rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cu-section-header .section-title {
+  font-size: 32rpx;
+  color: var(--cu-gold);
+  font-weight: bold;
+  flex: 1;
+}
+
+.cu-section-body {
+  background: rgba(255,255,255,0.95);
+  padding: 32rpx;
+}
+
+/* ===== 诗文竖排样式 ===== */
+.cu-poem-vertical {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 32rpx;
+  padding: 32rpx;
+}
+
+.cu-poem-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.cu-poem-char {
+  font-size: 34rpx;
+  color: var(--cu-ink);
+  writing-mode: vertical-rl;
+  font-family: "STKaiti", "KaiTi", serif;
+  line-height: 1.6;
+}
+
+.cu-poem-char.highlight {
+  color: var(--cu-gold);
+  text-shadow: 0 0 12rpx rgba(201,168,76,0.6);
+}
+
+/* ===== 印章组件 ===== */
+.cu-seal {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 4rpx solid var(--cu-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201,168,76,0.08);
+  box-shadow: var(--cu-shadow-gold), inset 0 0 20rpx rgba(201,168,76,0.1);
+}
+
+.cu-seal-sm {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 3rpx solid var(--cu-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201,168,76,0.08);
+}
+
+/* ===== 乐器卡片 ===== */
+.cu-instrument-card {
+  background: rgba(255,255,255,0.95);
+  border-radius: var(--cu-radius-lg);
+  border: 2rpx solid rgba(201,168,76,0.25);
+  padding: 32rpx 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+  box-shadow: var(--cu-shadow);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cu-instrument-card:active {
+  transform: scale(0.96);
+  border-color: var(--cu-gold);
+  box-shadow: var(--cu-shadow-gold);
+}
+
+.cu-instrument-card .instrument-img {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  border: 3rpx solid var(--cu-gold-light);
+  overflow: hidden;
+  background: var(--cu-cream-dark);
+}
+
+.cu-instrument-card .instrument-name {
+  font-size: 32rpx;
+  color: var(--cu-ink);
+  font-weight: bold;
+}
+
+.cu-instrument-card .instrument-tag {
+  font-size: 22rpx;
+  color: var(--cu-gold-dark);
+  background: rgba(201,168,76,0.12);
+  padding: 4rpx 18rpx;
+  border-radius: var(--cu-radius-full);
+  border: 1rpx solid rgba(201,168,76,0.3);
+}
+
+/* ===== AI对话组件 ===== */
+.cu-chat-wrap {
+  background: linear-gradient(180deg, var(--cu-ink) 0%, #1A2040 100%);
+  border-radius: var(--cu-radius-lg);
+  overflow: hidden;
+  border: 1rpx solid rgba(201,168,76,0.3);
+}
+
+.cu-chat-header {
+  padding: 24rpx 32rpx;
+  background: rgba(201,168,76,0.1);
+  border-bottom: 1rpx solid rgba(201,168,76,0.2);
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.cu-chat-header .avatar {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  border: 2rpx solid var(--cu-gold);
+  overflow: hidden;
+}
+
+.cu-chat-header .name {
+  font-size: 30rpx;
+  color: var(--cu-gold);
+  font-weight: bold;
+}
+
+.cu-chat-header .status {
+  font-size: 22rpx;
+  color: var(--cu-gold-light);
+  opacity: 0.7;
+}
+
+.cu-chat-messages {
+  padding: 24rpx;
+  min-height: 300rpx;
+}
+
+.cu-chat-bubble {
+  display: flex;
+  align-items: flex-start;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.cu-chat-bubble.user { flex-direction: row-reverse; }
+
+.cu-chat-bubble .bubble-content {
+  max-width: 70%;
+  padding: 20rpx 24rpx;
+  border-radius: var(--cu-radius);
+  font-size: 28rpx;
+  line-height: 1.7;
+  font-family: "STKaiti", serif;
+}
+
+.cu-chat-bubble.ai .bubble-content {
+  background: rgba(201,168,76,0.12);
+  color: var(--cu-cream);
+  border: 1rpx solid rgba(201,168,76,0.25);
+  border-top-left-radius: 4rpx;
+}
+
+.cu-chat-bubble.user .bubble-content {
+  background: linear-gradient(135deg, var(--cu-gold) 0%, var(--cu-gold-dark) 100%);
+  color: var(--cu-ink);
+  border-top-right-radius: 4rpx;
+}
+
+.cu-chat-input-area {
+  padding: 16rpx 24rpx;
+  background: rgba(26,26,46,0.8);
+  border-top: 1rpx solid rgba(201,168,76,0.2);
+  display: flex;
+  gap: 16rpx;
+  align-items: center;
+}
+
+.cu-chat-input {
+  flex: 1;
+  background: rgba(255,255,255,0.08);
+  border: 1rpx solid rgba(201,168,76,0.25);
+  border-radius: var(--cu-radius-full);
+  padding: 16rpx 24rpx;
+  color: var(--cu-cream);
+  font-size: 28rpx;
+  font-family: "STKaiti", serif;
+}
+
+/* ===== 进度步骤条 ===== */
+.cu-steps {
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  margin-bottom: 32rpx;
+}
+
+.cu-step-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.cu-step-item::before {
+  content: '';
+  position: absolute;
+  top: 20rpx;
+  left: -50%;
+  right: 50%;
+  height: 2rpx;
+  background: rgba(201,168,76,0.25);
+  z-index: 0;
+}
+
+.cu-step-item:first-child::before { display: none; }
+
+.cu-step-dot {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid rgba(201,168,76,0.4);
+  background: var(--cu-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20rpx;
+  color: var(--cu-gray);
+  z-index: 1;
+  position: relative;
+}
+
+.cu-step-dot.active {
+  background: var(--cu-gold);
+  border-color: var(--cu-gold);
+  color: var(--cu-white);
+  box-shadow: 0 0 12rpx rgba(201,168,76,0.5);
+}
+
+.cu-step-dot.done {
+  background: var(--cu-cyan);
+  border-color: var(--cu-cyan);
+  color: var(--cu-white);
+}
+
+.cu-step-label {
+  font-size: 20rpx;
+  color: var(--cu-gray);
+  margin-top: 8rpx;
+  text-align: center;
+}
+
+.cu-step-label.active { color: var(--cu-gold); }
+
+/* ===== 弹窗组件 ===== */
+.cu-modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,26,46,0.65);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+}
+
+.cu-modal {
+  background: var(--cu-cream);
+  border-radius: var(--cu-radius-lg);
+  overflow: hidden;
+  width: 100%;
+  max-width: 660rpx;
+  box-shadow: 0 16rpx 64rpx rgba(26,26,46,0.4);
+  border: 1rpx solid rgba(201,168,76,0.3);
+}
+
+.cu-modal-header {
+  background: linear-gradient(135deg, var(--cu-ink) 0%, #2C2C4A 100%);
+  padding: 28rpx 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2rpx solid rgba(201,168,76,0.4);
+}
+
+.cu-modal-title {
+  font-size: 32rpx;
+  color: var(--cu-gold);
+  font-weight: bold;
+}
+
+.cu-modal-close {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  background: rgba(201,168,76,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cu-gold-light);
+  font-size: 32rpx;
+}
+
+.cu-modal-body { padding: 32rpx; }
+
+/* ===== 加载态 ===== */
+.cu-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  padding: 32rpx;
+}
+
+.cu-loading-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: var(--cu-gold);
+  animation: cu-bounce 1.2s infinite ease-in-out;
+}
+
+.cu-loading-dot:nth-child(2) { animation-delay: 0.2s; }
+.cu-loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes cu-bounce {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== 鎏金装饰元素 ===== */
+.cu-gold-dot {
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background: var(--cu-gold);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.cu-gold-line {
+  width: 60rpx;
+  height: 3rpx;
+  background: linear-gradient(90deg, transparent, var(--cu-gold), transparent);
+  margin: 0 auto;
+}
+
+.cu-gold-border-left {
+  border-left: 4rpx solid var(--cu-gold);
+  padding-left: 20rpx;
+}
+
+/* ===== 封面页特效 ===== */
+.cu-cover-bg {
+  background: linear-gradient(160deg, #0D1B2A 0%, #1A1A2E 40%, #2C1810 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.cu-cover-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 70%, rgba(44,95,110,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cu-cover-title {
+  font-size: 56rpx;
+  color: var(--cu-gold);
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 8rpx;
+  text-shadow: 0 0 32rpx rgba(201,168,76,0.4);
+  line-height: 1.4;
+}
+
+.cu-cover-subtitle {
+  font-size: 28rpx;
+  color: var(--cu-gold-light);
+  text-align: center;
+  letter-spacing: 4rpx;
+  opacity: 0.85;
+  margin-top: 16rpx;
+}
+
+/* ===== 意象高亮 ===== */
+.cu-imagery {
+  display: inline;
+  color: var(--cu-gold);
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: rgba(201,168,76,0.4);
+  text-underline-offset: 4rpx;
+  cursor: pointer;
+}
+
+/* ===== 名家评价块 ===== */
+.cu-quote {
+  background: linear-gradient(135deg, rgba(192,57,43,0.06) 0%, rgba(232,117,106,0.08) 100%);
+  border-left: 6rpx solid var(--cu-red);
+  border-radius: 0 var(--cu-radius) var(--cu-radius) 0;
+  padding: 24rpx 28rpx;
+  margin: 20rpx 0;
+}
+
+.cu-quote-text {
+  font-size: 28rpx;
+  color: var(--cu-ink);
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.cu-quote-author {
+  font-size: 24rpx;
+  color: var(--cu-red);
+  margin-top: 12rpx;
+  text-align: right;
+}
+
+/* ===== 时间轴 ===== */
+.cu-timeline {
+  padding: 0 32rpx;
+}
+
+.cu-timeline-item {
+  display: flex;
+  gap: 24rpx;
+  padding-bottom: 32rpx;
+  position: relative;
+}
+
+.cu-timeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.cu-timeline-node {
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: 50%;
+  background: var(--cu-gold);
+  border: 3rpx solid var(--cu-gold-light);
+  box-shadow: 0 0 8rpx rgba(201,168,76,0.5);
+  flex-shrink: 0;
+}
+
+.cu-timeline-line {
+  width: 2rpx;
+  flex: 1;
+  background: linear-gradient(180deg, var(--cu-gold-light), rgba(201,168,76,0.1));
+  margin-top: 8rpx;
+}
+
+.cu-timeline-content { flex: 1; padding-top: 4rpx; }
+
+/* ===== 滚动修复 ===== */
+.cu-scroll-fix {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== 图片占位 ===== */
+.cu-img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cu-img-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ===== 消息提示 ===== */
+.cu-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(26,26,46,0.9);
+  color: var(--cu-cream);
+  padding: 20rpx 40rpx;
+  border-radius: var(--cu-radius-full);
+  font-size: 28rpx;
+  z-index: 9999;
+  border: 1rpx solid rgba(201,168,76,0.3);
+  pointer-events: none;
+}
+
+/* ===== 成就卡片 ===== */
+.cu-achievement {
+  display: flex;
+  align-items: flex-start;
+  gap: 20rpx;
+  padding: 24rpx;
+  background: rgba(255,255,255,0.9);
+  border-radius: var(--cu-radius);
+  border: 1rpx solid rgba(201,168,76,0.2);
+  margin-bottom: 16rpx;
+}
+
+.cu-achievement-num {
+  width: 52rpx;
+  height: 52rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cu-gold) 0%, var(--cu-gold-dark) 100%);
+  color: var(--cu-white);
+  font-size: 26rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: var(--cu-shadow-gold);
+}
+
+.cu-achievement-title {
+  font-size: 30rpx;
+  color: var(--cu-red);
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.cu-achievement-desc {
+  font-size: 26rpx;
+  color: var(--cu-ink);
+  line-height: 1.7;
+}
+
+/* ===== 禁用uni-input高度 ===== */
+uni-input {
+  height: auto !important;
+  min-height: 0 !important;
+  line-height: normal !important;
+}
+</style>

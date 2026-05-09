@@ -1,0 +1,339 @@
+<view class="lesson-page">
+  <view class="cu-navbar">
+    <view class="nav-back" bindtap="goBack">
+      <text class="nav-back-icon">❮</text>
+    </view>
+    <text class="nav-title">李凭箜篌引 · 微课</text>
+    <view class="nav-placeholder" />
+  </view>
+
+  <scroll-view 
+    class="content-scroll" 
+    scroll-y 
+    scroll-with-animation 
+    scroll-into-view="{{scrollToViewId}}" 
+    scroll-top="{{targetScrollTop}}" 
+  >
+    <view class="section-container">
+      <view id="section-0" class="section-anim section-cover">
+        <view class="section-header">
+          <text class="section-title">诗乐共生·大唐浪漫</text>
+          <text class="section-subtitle">解析李贺《李凭箜篌引》</text>
+        </view>
+        <text class="section-description">微课与 AI 辅助教学 — 汉语言文学（唐宋诗词）</text>
+        <view style="height: 40rpx;"></view>
+      </view>
+
+      <view id="section-1" class="section-anim section-intro">
+        <view class="section-header">
+          <text class="section-title">一声箜篌起</text>
+          <text class="section-subtitle">大唐千古情</text>
+        </view>
+        <text class="section-description">旋律，触动的不仅仅是听觉；音乐，从不只是娱人而已。眼耳鼻舌身意，都将在一场盛大中得到感发。</text>
+        
+        <view class="characters-section">
+          <view class="character-item">
+            <image class="character-avatar" src="/images/图片7.jpg" mode="aspectFill" />
+            <view class="character-info">
+              <text class="character-name">李贺</text>
+              <text class="character-alias">诗鬼</text>
+              <text class="character-desc">中唐"诗鬼"，善用奇崛意象，有"太白仙才，长吉鬼才"之称</text>
+            </view>
+          </view>
+          <view class="character-item">
+            <image class="character-avatar" src="/images/图片9.jpg" mode="aspectFill" />
+            <view class="character-info">
+              <text class="character-name">李凭</text>
+              <text class="character-alias">乐师</text>
+              <text class="character-desc">大唐著名箜篌演奏家，技艺冠绝一时，深得文人雅士推崇</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="goals-section">
+          <text class="goals-title">学习目标</text>
+          <view class="goal-item">
+            <text class="goal-icon">•</text>
+            <text class="goal-text">感受诗歌中音乐描摹的独特艺术手法</text>
+          </view>
+          <view class="goal-item">
+            <text class="goal-icon">•</text>
+            <text class="goal-text">理解"诗乐共生"的诗词意象美学</text>
+          </view>
+          <view class="goal-item">
+            <text class="goal-icon">•</text>
+            <text class="goal-text">掌握诗歌的艺术成就与文学史价值</text>
+          </view>
+        </view>
+      </view>
+
+      <view id="section-2" class="section-anim section-poem">
+        <view class="section-header">
+          <text class="section-title">原文呈现</text>
+          <text class="section-subtitle">鬼才之笔，绘箜篌之音</text>
+          <view class="recite-btn {{isReciting ? 'reciting' : ''}}" bindtap="toggleRecitation">
+            <image class="recite-icon" src="https://img.icons8.com/fluency/48/speaker.png" mode="aspectFit" />
+            <text class="recite-text">{{isReciting ? '停止吟诵' : 'AI吟诵'}}</text>
+          </view>
+        </view>
+        <view class="poem-content-wrap">
+          <view wx:for="{{poemLines}}" wx:key="index" class="poem-line-container">
+            <view class="rhythm-symbols {{activeLineIndex === index ? 'show' : ''}}">
+              <text wx:for="{{item.rhythm}}" wx:for-item="symbol" wx:key="rIdx" class="rhythm-char">{{symbol}}</text>
+            </view>
+            <view class="poem-line {{activeLineIndex === index ? 'active-line' : ''}}">
+              <text wx:for="{{item.chars}}" wx:for-item="char" wx:key="cIdx" class="poem-char">{{char}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view id="section-3" class="section-anim section-analysis">
+        <view class="section-header">
+          <text class="section-title">诗乐解构</text>
+          <text class="section-subtitle">意象为骨，音乐为魂</text>
+          <button class="scene-entry-btn" bindtap="goToScenePage">进入场景还原</button>
+        </view>
+        
+        <view class="stanza-item">
+          <text class="stanza-verse">吴丝蜀桐张高秋，空山凝云颓不流。</text>
+          <text class="stanza-annotation">吴丝蜀桐：箜篌优质材料；江娥：湘妃；素女：神话神女</text>
+          <text class="stanza-interpretation">以箜篌材质起笔，用"凝云不流""湘妃啼竹"夸张烘托乐声凄婉，未闻其声先感其势</text>
+          <view class="stanza-methods">
+            <text class="method-tag">用典</text>
+            <text class="method-tag">侧面烘托</text>
+            <text class="method-tag">以景衬乐</text>
+          </view>
+        </view>
+
+        <view class="stanza-item">
+          <text class="stanza-verse">昆山玉碎凤凰叫，芙蓉泣露香兰笑。</text>
+          <text class="stanza-annotation">昆山玉：昆仑美玉；十二门：长安城门；紫皇：天帝</text>
+          <text class="stanza-interpretation">核心描摹句，以"玉碎"写清脆、"凤凰叫"写悠扬、"芙蓉泣露"写凄婉、"香兰笑"写明快</text>
+          <view class="stanza-methods">
+            <text class="method-tag">通感交融</text>
+            <text class="method-tag">以形写声</text>
+            <text class="method-tag">虚实结合</text>
+          </view>
+        </view>
+
+        <view class="stanza-item">
+          <text class="stanza-verse">女娲炼石补天处，石破天惊逗秋雨。</text>
+          <text class="stanza-annotation">女娲：神话人物；神妪：神山善弹箜篌神女；吴质：吴刚</text>
+          <text class="stanza-interpretation">想象推至极致，乐声震天地、动鬼神、惊万物，感染力覆盖三界</text>
+          <view class="stanza-methods">
+            <text class="method-tag">想象奇崛</text>
+            <text class="method-tag">夸张极致</text>
+          </view>
+        </view>
+
+        <view class="methods-summary">
+          <text class="summary-title">艺术手法总结</text>
+          <view class="summary-item"><text class="summary-icon">•</text><text class="summary-text">侧面烘托，以景衬乐</text></view>
+          <view class="summary-item"><text class="summary-icon">•</text><text class="summary-text">通感交融，以形写声</text></view>
+          <view class="summary-item"><text class="summary-icon">•</text><text class="summary-text">层层递进，虚实结合</text></view>
+          <view class="summary-item"><text class="summary-icon">•</text><text class="summary-text">想象奇崛，夸张极致</text></view>
+        </view>
+      </view>
+
+      <view id="section-4" class="section-anim section-instrument">
+        <view class="section-header">
+          <text class="section-title">乐器科普</text>
+          <text class="section-subtitle">诗乐共生的文化根基</text>
+        </view>
+        <text class="instrument-intro">箜篌为大唐主流弹拨乐器，形制优美、音色清亮。点击乐器聆听千年回响。</text>
+        
+        <view class="instruments-grid">
+          <view class="instrument-card {{playingKey === 'konghou' ? 'instrument-playing' : ''}}" hover-class="instrument-active" bindtap="handleInstrumentPlay" data-key="konghou">
+            <image class="instrument-icon" src="https://hpi-hub.tos-cn-beijing.volces.com/static/batch_22/1757583541871-3877.jpg" mode="aspectFit" />
+            <text class="instrument-name">箜篌</text>
+            <text class="instrument-dynasty">汉唐</text>
+            <text class="instrument-desc">竖箜篌，汉代自西域传入，二十三弦，竖抱于怀，双手齐奏，音色清亮透明。</text>
+            <view class="click-hint">点击聆听</view>
+          </view>
+          <view class="instrument-card {{playingKey === 'zheng' ? 'instrument-playing' : ''}}" hover-class="instrument-active" bindtap="handleInstrumentPlay" data-key="zheng">
+            <image class="instrument-icon" src="https://hpi-hub.tos-cn-beijing.volces.com/static/batch_11/1757449804074-7374.png" mode="aspectFit" />
+            <text class="instrument-name">筝</text>
+            <text class="instrument-dynasty">秦唐</text>
+            <text class="instrument-desc">古筝，唐代雅乐俗乐必备，装饰华美，有银筝、金筝、玉筝之称，音色丰富悠扬。</text>
+            <view class="click-hint">点击聆听</view>
+          </view>
+          <view class="instrument-card {{playingKey === 'ruanxian' ? 'instrument-playing' : ''}}" hover-class="instrument-active" bindtap="handleInstrumentPlay" data-key="ruanxian">
+            <image class="instrument-icon" src="https://hpi-hub.tos-cn-beijing.volces.com/static/batch_7/1757274188237-1115.png" mode="aspectFit" />
+            <text class="instrument-name">阮咸</text>
+            <text class="instrument-dynasty">魏晋唐</text>
+            <text class="instrument-desc">阮咸，以竹林七贤阮咸命名，形圆项长，十三品柱，派生出月琴，形似明月，声合琴韵。</text>
+            <view class="click-hint">点击聆听</view>
+          </view>
+        </view>
+      </view>
+
+      <view id="section-5" class="section-anim section-achievement">
+        <view class="section-header">
+          <text class="section-title">艺术成就与对比</text>
+          <text class="section-subtitle">千古绝唱，独步诗坛</text>
+        </view>
+        
+        <view class="comparison-banner" bindtap="openComparison">
+          <view class="banner-left">
+            <text class="banner-title">历代音乐诗对比分析</text>
+            <text class="banner-sub">点击展开《琵琶行》与《听颖师弹琴》对比</text>
+          </view>
+          <text class="banner-arrow">❯</text>
+        </view>
+        
+        <view class="achievement-item">
+          <text class="achievement-title">描摹手法的极致创新</text>
+          <text class="achievement-desc">突破历代音乐诗范式，将通感、夸张、想象用到极致，让抽象音乐变得具象可感。</text>
+        </view>
+        <view class="achievement-item">
+          <text class="achievement-title">意象选择的奇崛瑰丽</text>
+          <text class="achievement-desc">选取昆山玉、凤凰、女娲、月宫等浪漫意象，贴合大唐文化，又融入李贺"鬼才"风格。</text>
+        </view>
+        <view class="achievement-item">
+          <text class="achievement-title">诗乐融合的完美典范</text>
+          <text class="achievement-desc">无一句直接写"乐"，却句句扣住箜篌的节奏、音色与情感，读诗如听乐。</text>
+        </view>
+        <view class="achievement-item">
+          <text class="achievement-title">情感表达的含蓄深沉</text>
+          <text class="achievement-desc">借李凭高超技艺，抒发对艺术的推崇、对大唐文化的赞美，暗含自身怀才不遇的淡淡愁绪。</text>
+        </view>
+
+        <view class="quotes-section">
+          <text class="quotes-title">名家评价</text>
+          <view class="quote-item">
+            <text class="quote-text">白香山"江上琵琶"，韩退之《颖师琴》，李长吉《李凭箜篌引》，皆摹写声音之至文。</text>
+            <text class="quote-author">— 方扶南《李长吉诗集批注》</text>
+          </view>
+          <view class="quote-item">
+            <text class="quote-text">此诗赞美李凭弹箜篌所产生的艺术魅力，用多种手法描摹，想像奇幻，词彩浓丽。</text>
+            <text class="quote-author">— 《中国古代文学作品选》</text>
+          </view>
+        </view>
+      </view>
+
+      <view id="section-6" class="section-anim section-value">
+        <view class="section-header">
+          <text class="section-title">文学史价值</text>
+          <text class="section-subtitle">承前启后，光耀千古</text>
+        </view>
+        <view class="value-item">
+          <text class="value-title">承大唐之韵，拓音乐诗之境</text>
+          <text class="value-desc">继承大唐浪漫主义诗歌传统，突破音乐诗写作边界，将描摹手法与想象推至极致。</text>
+        </view>
+        <view class="value-item">
+          <text class="value-title">启后世之文，立诗乐之范</text>
+          <text class="value-desc">影响宋代豪放派、婉约派诗词，为后世音乐诗、咏乐文树立"诗乐共生"的创作典范。</text>
+        </view>
+        <view class="value-item">
+          <text class="value-title">融文化之魂，传大唐之美</text>
+          <text class="value-desc">融合大唐乐器、美学、浪漫文化，是研究大唐文化的重要史料。</text>
+        </view>
+
+        <view class="heritage-section">
+          <text class="heritage-title">文化传承与创新</text>
+          <text class="heritage-item">文化传承：箜篌虽后世失传，却因《李凭箜篌引》留存音色、形制与文化内涵。</text>
+          <text class="heritage-item">当代创新：以 AI 数字人、虚拟仿真、交互设计等技术还原诗乐场景，让大唐浪漫焕发生命力。</text>
+        </view>
+      </view>
+
+      <view id="section-7" class="section-anim section-summary">
+        <view class="section-header">
+          <text class="section-title">课堂总结</text>
+          <text class="section-subtitle">诗乐共生，薪火相传</text>
+        </view>
+        
+        <view class="summaries-grid">
+          <view class="summary-card">
+            <text class="summary-card-icon">📜</text>
+            <text class="summary-card-title">诗之美</text>
+            <text class="summary-card-desc">李贺以鬼才之笔，用通感、夸张、想象描摹箜篌之声，意象奇崛、辞藻瑰丽。</text>
+          </view>
+          <view class="summary-card">
+            <text class="summary-card-icon">🎵</text>
+            <text class="summary-card-title">乐之魂</text>
+            <text class="summary-card-desc">箜篌作为大唐主流乐器，是诗歌创作的文化根基，诗乐相融让文字有音乐之魂。</text>
+          </view>
+          <view class="summary-card">
+            <text class="summary-card-icon">🏮</text>
+            <text class="summary-card-title">文之韵</text>
+            <text class="summary-card-desc">诗歌承前启后，是大唐浪漫主义文学代表，树立诗乐共生典范。</text>
+          </view>
+        </view>
+
+        <view class="tasks-section">
+          <text class="tasks-title">课后任务</text>
+          <view class="task-item">
+            <text class="task-title">自主探究</text>
+            <text class="task-desc">扫描二维码进入 AI 诗词学习小程序，自主学习李贺其他代表作。</text>
+          </view>
+          <view class="task-item">
+            <text class="task-title">实践互动</text>
+            <text class="task-desc">以"诗乐共生"为主题，借助 AI 工具制作迷你微课课件。</text>
+          </view>
+        </view>
+
+        <view class="closing-section">
+          <text class="closing-text">诗乐共生，是大唐的浪漫
+是文学的魅力，是文化的传承
+愿你以诗为舟，以乐为帆</text>
+        </view>
+      </view>
+
+      <view style="height: 120rpx;" />
+    </view>
+  </scroll-view>
+
+  <view class="modal-mask" wx:if="{{showInstrumentModal}}" bindtap="closeInstrumentModal">
+    <view class="modal-content" catchtap="stopBubble">
+      <view class="modal-header">
+        <text class="modal-title">{{selectedInstrument.name}} · 详情</text>
+        <text class="modal-close" bindtap="closeInstrumentModal">✕</text>
+      </view>
+      <view class="modal-body">
+        <view class="detail-item">
+          <text class="detail-label">盛行朝代</text>
+          <text class="detail-text">{{selectedInstrument.dynasty}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">音色特点</text>
+          <text class="detail-text">{{selectedInstrument.features}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">文化背景</text>
+          <text class="detail-text">{{selectedInstrument.story}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="modal-mask" wx:if="{{showComparisonModal}}" bindtap="closeComparison">
+    <view class="modal-content comparison-modal" catchtap="stopBubble">
+      <view class="modal-header">
+        <text class="modal-title">{{comparisonContent.title}}</text>
+        <text class="modal-close" bindtap="closeComparison">✕</text>
+      </view>
+      <view class="modal-body">
+        <view class="comp-tabs">
+          <view class="comp-tab {{comparisonContent.activeTab === 'all' ? 'active' : ''}}" bindtap="switchCompTab" data-tab="all">全部</view>
+          <view class="comp-tab {{comparisonContent.activeTab === 'tonggan' ? 'active' : ''}}" bindtap="switchCompTab" data-tab="tonggan">通感应用</view>
+          <view class="comp-tab {{comparisonContent.activeTab === 'imagination' ? 'active' : ''}}" bindtap="switchCompTab" data-tab="imagination">想象奇崛</view>
+        </view>
+        <view class="comparison-list">
+          <view wx:for="{{comparisonContent.list}}" wx:key="index" 
+                class="comparison-card {{item.isMatched ? 'highlight-card' : 'dim-card'}}">
+            <view class="comp-title">{{item.poem}}</view>
+            <view class="comp-row">
+              <text class="comp-label">风格特点：</text>
+              <text class="comp-text">{{item.style}}</text>
+            </view>
+            <view class="comp-row">
+              <text class="comp-label">艺术手法：</text>
+              <text class="comp-text {{item.isMatched && comparisonContent.activeTab !== 'all' ? 'highlight-text' : ''}}">{{item.method}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

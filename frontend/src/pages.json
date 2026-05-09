@@ -1,0 +1,45 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "诗乐共生·大唐浪漫",
+        "navigationBarBackgroundColor": "#1A1A2E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#0D1B2A"
+      }
+    },
+    {
+      "path": "pages/register/index",
+      "style": {
+        "navigationBarTitleText": "登录 · 注册",
+        "navigationBarBackgroundColor": "#1A1A2E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#0D1B2A"
+      }
+    },
+    {
+      "path": "pages/lesson/index",
+      "style": {
+        "navigationBarTitleText": "李凭箜篌引 · 微课",
+        "navigationBarBackgroundColor": "#1A1A2E",
+        "navigationBarTextStyle": "white",
+        "backgroundColor": "#F8F3E8"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "诗乐共生·大唐浪漫",
+    "navigationBarBackgroundColor": "#1A1A2E",
+    "backgroundColor": "#F8F3E8",
+    "backgroundTextStyle": "light",
+    "navigationStyle": "default"
+  },
+  "easycom": {
+    "autoscan": true,
+    "custom": {
+      "^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
+    }
+  }
+}
