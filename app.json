@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/lesson/index",
+    "pages/ai/index",
+    "pages/register/index",
+    "pages/scene/index"
+  ],
+  "window": {
+    "navigationBarTitleText": "诗乐共生·大唐浪漫",
+    "navigationBarBackgroundColor": "#1A1A2E",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F8F3E8",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#C9A84C",
+    "backgroundColor": "#1A1A2E",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/lesson/index",
+        "text": "微课"
+      },
+      {
+        "pagePath": "pages/ai/index",
+        "text": "AI对话"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
